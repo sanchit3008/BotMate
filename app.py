@@ -42,8 +42,7 @@ def webhook():
 						messaging_text = 'no text'
 
 					#categories = response(messaging_text, sender_id)
-					elements = [{"title":messaging_text}]
-					bot.send_generic_message(sender_id, elements)
+					bot.sendTextMessage(sender_id, messaging_text)
 
 	return "ok", 1200
 
