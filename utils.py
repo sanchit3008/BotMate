@@ -2,7 +2,7 @@ from apiai import ApiAI
 import json
 import requests
 
-CLIENT_ACCESS_TOKEN = "606b6ab2fb7640eb9ef0e29e9d6bd0c"
+CLIENT_ACCESS_TOKEN = "606b6ab2fb7640eb9ef0e29e9d6bd0c8"
 
 ai = ApiAI(CLIENT_ACCESS_TOKEN)
 
