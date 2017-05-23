@@ -1,6 +1,6 @@
 import os, sys
 from flask import Flask, request
-from utils import response
+from utils import response, gif_search
 from pymessenger import Bot
 
 app = Flask(__name__)
@@ -29,7 +29,7 @@ def webhook():
 	if data['object'] == 'page':
 		for entry in data['entry']:
 			for messaging_event in entry['messaging']:
-				#bot.setGreetingText("Hi! My name is BotMate and I'm your new friend! Talk to me or type @image to search for image results!")
+				
 				# IDs
 				sender_id = messaging_event['sender']['id']
 				recipient_id = messaging_event['recipient']['id']
@@ -40,8 +40,11 @@ def webhook():
 						messaging_text = messaging_event['message']['text']
 					else:
 						messaging_text = 'no text'
-					
-					bot.send_text_message(sender_id, response(messaging_text))
+
+					if messaging_text[:4].lower() == "\gif":
+						bot.send_image_url(sender_id, gif_search(messaging_text[5:]))
+					else:
+						bot.send_text_message(sender_id, response(messaging_text))
 
 	return "ok", 200
 
