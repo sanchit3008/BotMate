@@ -49,7 +49,10 @@ def webhook():
 					if messaging_text[:3].lower() == "gif":
 						bot.send_image_url(sender_id, gif_search(messaging_text[4:]))
 					else:
-						bot.send_text_message(sender_id, response(messaging_text))
+						if response(messaging_text) == "":
+							bot.send_text_message(sender_id, "responsetogibberish")
+						else:
+							bot.send_text_message(sender_id, response(messaging_text))
 
 	return "ok", 200
 
