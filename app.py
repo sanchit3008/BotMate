@@ -43,7 +43,7 @@ def webhook():
 
 					#categories = response(messaging_text, sender_id)
 					#bot.send_generic_message(sender_id, elements)
-					bot.send_generic_message(sender_id, messaging_text)
+					#bot.send_generic_message(sender_id, messaging_text)
 
 	return "ok", 1200
 
