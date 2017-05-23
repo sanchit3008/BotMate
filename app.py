@@ -29,15 +29,9 @@ def webhook():
 	if data['object'] == 'page':
 		for entry in data['entry']:
 			for messaging_event in entry['messaging']:
-				
 				# IDs
 				sender_id = messaging_event['sender']['id']
 				recipient_id = messaging_event['recipient']['id']
-
-				bot.send_generic_message(sender_id, {"buttons":[{
-					"type":"postback",
-        			"title":"Bookmark Item",
-        			"payload":"DEVELOPER_DEFINED_PAYLOAD"}]})
 
 				if messaging_event.get('message'):
 					# Extracting text message
@@ -48,6 +42,8 @@ def webhook():
 
 					if messaging_text[:3].lower() == "gif":
 						bot.send_image_url(sender_id, gif_search(messaging_text[4:]))
+					elif messaging_text.lower() == "get started":
+						bot.send_text_message(sender_id, 'You can chat with me, and also search for gifs. For eg -"gif cats"')
 					else:
 						bot.send_text_message(sender_id, response(messaging_text))
 
