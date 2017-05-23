@@ -16,7 +16,7 @@ def response(message_text):
 
 def gif_search(message_text):
 	search_phrase = message_text.replace(" ", "-")
-	url = "http://api.giphy.com/v1/gifs/search?q=" + search_phrase + "&api_key=dc6zaTOxFJmzC&limit=1&rating=y"
+	url = "http://api.giphy.com/v1/gifs/search?q=" + search_phrase + "&api_key=dc6zaTOxFJmzC&limit=1"
 	response = requests.get(url)
 	obj = response.json()
-	return (obj["data"][0]["images"]["downsized_medium"]["url"])
+	return (obj["data"][0]["images"]["original"]["url"])
