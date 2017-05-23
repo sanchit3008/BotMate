@@ -36,7 +36,7 @@ def webhook():
 				if messaging_event['postback']:
 					postback_event = messaging_event['postback']['payload']
 					if postback_event == "help":
-						bot.send_text_message(sender_id, 'You can chat with me, and also search for gifs.Try typing "gif cats" ;) ')
+						bot.send_text_message(sender_id, 'I can talk to you, and also search for gifs. Try typing "gif cats" ;) ')
 
 
 				if messaging_event.get('message'):
