@@ -21,7 +21,7 @@ def get_news_elements(categories):
 	news_client = gnewsclient()
 	news_client.query = ''
 
-	if categories['newstype'] != None:
+	if categories['type'] != None:
 		news_client.query += categories['type'] + ' '
 
 	if categories['location'] != None:
