@@ -7,7 +7,7 @@ client = Wit(access_token = access_token)
 
 def wit_response(message_text):
 	resp = client.message(message_text)
-	categories = {'newstype':None, 'location':None}
+	categories = {'type':None, 'location':None}
 
 	
 	entities = list(resp['entities'])
