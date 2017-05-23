@@ -33,6 +33,12 @@ def webhook():
 				sender_id = messaging_event['sender']['id']
 				recipient_id = messaging_event['recipient']['id']
 
+				if messaging_event['postback']:
+					postback_event = messaging_event['postback']['payload']
+					if postback_event == "help":
+						bot.send_text_message(sender_id, 'You can chat with me, and also search for gifs.Try typing "gif cats" ;) ')
+
+
 				if messaging_event.get('message'):
 					# Extracting text message
 					if 'text' in messaging_event['message']:
@@ -42,8 +48,6 @@ def webhook():
 
 					if messaging_text[:3].lower() == "gif":
 						bot.send_image_url(sender_id, gif_search(messaging_text[4:]))
-					elif messaging_event['postback']['payload'] == "help":
-						bot.send_text_message(sender_id, 'You can chat with me, and also search for gifs.Try typing "gif cats".')
 					else:
 						bot.send_text_message(sender_id, response(messaging_text))
 
