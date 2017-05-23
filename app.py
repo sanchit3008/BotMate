@@ -42,7 +42,7 @@ def webhook():
 
 					if messaging_text[:3].lower() == "gif":
 						bot.send_image_url(sender_id, gif_search(messaging_text[4:]))
-					elif messaging_event['payload'] == "help":
+					elif messaging_event['postback']['payload'] == "help":
 						bot.send_text_message(sender_id, 'You can chat with me, and also search for gifs.Try typing "gif cats".')
 					else:
 						bot.send_text_message(sender_id, response(messaging_text))
