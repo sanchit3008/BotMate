@@ -1,7 +1,7 @@
 from apiai import ApiAI
 import json
 
-CLIENT_ACCESS_TOKEN = "da359014f4414053b6bcf2192d05cbfa"
+CLIENT_ACCESS_TOKEN = "606b6ab2fb7640eb9ef0e29e9d6bd0c8"
 
 ai = ApiAI(CLIENT_ACCESS_TOKEN)
 
