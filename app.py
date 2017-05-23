@@ -41,8 +41,7 @@ def webhook():
 					else:
 						messaging_text = 'no text'
 
-					#categories = response(messaging_text, sender_id)
-					bot.send_text_message(sender_id, "messaging_text")
+					bot.send_text_message(sender_id, response(messaging_text))
 
 	return "ok", 200
 
