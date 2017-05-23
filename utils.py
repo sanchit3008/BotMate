@@ -22,7 +22,7 @@ def get_news_elements(categories):
 	news_client.query = ''
 
 	if categories['newstype'] != None:
-		news_client.query += categories['newstype'] + ' '
+		news_client.query += categories['type'] + ' '
 
 	if categories['location'] != None:
 		news_client.query += categories['location']
