@@ -40,7 +40,7 @@ def webhook():
 						messaging_text = messaging_event['message']['text']
 					else:
 						messaging_text = 'no text'
-					log(messaging_text)
+					
 					bot.send_text_message(sender_id, response(messaging_text))
 
 	return "ok", 200
