@@ -29,7 +29,7 @@ def webhook():
 	if data['object'] == 'page':
 		for entry in data['entry']:
 			for messaging_event in entry['messaging']:
-
+				bot.setGreetingText("Hi! My name is BotMate and I'm your new friend! Talk to me or type @image to search for image results!")
 				# IDs
 				sender_id = messaging_event['sender']['id']
 				recipient_id = messaging_event['recipient']['id']
