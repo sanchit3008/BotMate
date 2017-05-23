@@ -1,6 +1,6 @@
 import os, sys
 from flask import Flask, request
-from utils import wit_response, get_news_elements
+from utils import response
 from pymessenger import Bot
 
 app = Flask(__name__)
@@ -8,7 +8,6 @@ app = Flask(__name__)
 PAGE_ACCESS_TOKEN = "EAAYf2X7qS5kBAArGwzRJqJ2JlI1A7CorSl31dHxEMqDNz3W8kUqY28JqT4X9Y84vnqnE7MJOuZBlZBxYyxiXg5AWEaeyLQY27x7cnfZAXFgAtWKH7UFmKPCivnQxzo4sDpSUuvuw0jwMixfmESigL5RZBKvbRyiQ9cFsftI5FwZDZD"
 
 bot = Bot(PAGE_ACCESS_TOKEN)
-
 
 app = Flask(__name__)
 
@@ -19,7 +18,7 @@ def verify():
         if not request.args.get("hub.verify_token") == "hello":
             return "Verification token mismatch", 403
         return request.args["hub.challenge"], 200
-    return "Hello world", 200
+    return "Hello world", 1200
 
 
 @app.route('/', methods=['POST'])
@@ -42,15 +41,15 @@ def webhook():
 					else:
 						messaging_text = 'no text'
 
-					categories = wit_response(messaging_text)
+					categories = response(messaging_text)
 					elements = get_news_elements(categories)
 					bot.send_generic_message(sender_id, elements)
 
-	return "ok", 200
+	return "ok", 1200
 
 def log(message):
 	print(message)
 	sys.stdout.flush()
 
 if __name__ == "__main__":
-	app.run(debug = True, port = 200)
+	app.run(debug = True, port = 1200)

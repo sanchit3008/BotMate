@@ -1,3 +1,4 @@
+apiai==1.2.3
 appdirs==1.4.3
 beautifulsoup4==4.6.0
 bs4==0.0.1
@@ -9,6 +10,7 @@ html5lib==0.999999999
 itsdangerous==0.24
 Jinja2==2.9.6
 MarkupSafe==1.0
+numpy==1.12.1
 packaging==16.8
 pymessenger==0.0.7.0
 pyparsing==2.2.0

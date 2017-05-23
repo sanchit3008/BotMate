@@ -1,46 +1,13 @@
-from wit import Wit 
-from gnewsclient import gnewsclient
+from apiai import ApiAI
 
-access_token = "R7E5LODHGTMZD246NXZ5SOREQHTRSK2L"
+CLIENT_ACCESS_TOKEN = "da359014f4414053b6bcf2192d05cbfa"
 
-client = Wit(access_token = access_token)
+ai = ApiAI(CLIENT_ACCESS_TOKEN)
 
-def wit_response(message_text):
-	resp = client.message(message_text)
-	categories = {'type':None, 'location':None}
-
+def response(message_text, sender_id):
+	ai = ApiAI(CLIENT_ACCESS_TOKEN)
+	request = ai.text_request()
 	
-	entities = list(resp['entities'])
-	for entity in entities:
-		categories[entity] = resp['entities'][entity][0]['value']
-	
-	return categories
-
-
-def get_news_elements(categories):
-	news_client = gnewsclient()
-	news_client.query = ''
-
-	if categories['type'] != None:
-		news_client.query += categories['type'] + ' '
-
-	if categories['location'] != None:
-		news_client.query += categories['location']
-
-	news_items = news_client.get_news()
-
-	elements = []
-
-	for item in news_items:
-		element = {
-					'title': item['title'],
-					'buttons': [{
-								'type': 'web_url',
-								'title': "Read more",
-								'url': item['link']
-					}],
-					'image_url': item['img']		
-		}
-		elements.append(element)
-
-	return elements
+	request.query = message_text
+	response = request.getresponse()
+	return response.read()
