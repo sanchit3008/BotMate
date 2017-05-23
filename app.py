@@ -41,9 +41,9 @@ def webhook():
 					else:
 						messaging_text = 'no text'
 
-					categories = response(messaging_text)
-					elements = get_news_elements(categories)
-					bot.send_generic_message(sender_id, elements)
+					categories = response(messaging_text, sender_id)
+					#bot.send_generic_message(sender_id, elements)
+					bot.send_generic_message(sender_id, "YOLO")
 
 	return "ok", 1200
 
