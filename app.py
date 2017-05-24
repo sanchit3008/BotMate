@@ -5,7 +5,7 @@ from pymessenger import Bot
 
 app = Flask(__name__)
 
-PAGE_ACCESS_TOKEN = "EAAYf2X7qS5kBAArGwzRJqJ2JlI1A7CorSl31dHxEMqDNz3W8kUqY28JqT4X9Y84vnqnE7MJOuZBlZBxYyxiXg5AWEaeyLQY27x7cnfZAXFgAtWKH7UFmKPCivnQxzo4sDpSUuvuw0jwMixfmESigL5RZBKvbRyiQ9cFsftI5FwZDZD"
+PAGE_ACCESS_TOKEN = "YOUR_TOKEN"
 
 bot = Bot(PAGE_ACCESS_TOKEN)
 
