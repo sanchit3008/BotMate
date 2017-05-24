@@ -47,7 +47,10 @@ def webhook():
 						messaging_text = 'no text'
 
 					if messaging_text[:3].lower() == "gif":
-						bot.send_image_url(sender_id, gif_search(messaging_text[4:]))
+						if(len(messaging_text[4:])<2):
+							bot.send_text_message(sender_id, "Enter a longer search phrase :) ")
+						else:
+							bot.send_image_url(sender_id, gif_search(messaging_text[4:]))
 					else:
 						if response(messaging_text) == "":
 							bot.send_text_message(sender_id, response("responsetogibberish"))
