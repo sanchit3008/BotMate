@@ -51,7 +51,9 @@ def webhook():
 					else:
 						if response(messaging_text) == "":
 							bot.send_text_message(sender_id, response("responsetogibberish"))
-						elif messaging_text.lower() == "help" or messaging_text.lower() == "options" or messaging_text.lower() == "show options" or messaging_text.lower() == "what can you do" or messaging_text.lower() == "what can you do?":
+						elif messaging_text.lower() == "help":
+							bot.send_text_message(sender_id, 'I can talk to you, and also search for gifs. Try typing "gif cats" ;) ')
+						elif messaging_text.lower() == "options":
 							bot.send_text_message(sender_id, 'I can talk to you, and also search for gifs. Try typing "gif cats" ;) ')
 						else:
 							bot.send_text_message(sender_id, response(messaging_text))
