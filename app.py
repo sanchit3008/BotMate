@@ -50,11 +50,16 @@ def webhook():
 						if(len(messaging_text[4:])<2):
 							bot.send_text_message(sender_id, "Enter a longer search phrase :) ")
 						else:
-							bot.send_image_url(sender_id, gif_search(messaging_text[4:]))
+							if gif_search(messaging_text[4:]) == False:
+								bot.send_text_message(sender_id, "No GIFs available for that :( ")
+							else:
+								bot.send_image_url(sender_id, gif_search(messaging_text[4:]))
 					else:
 						if response(messaging_text) == "":
 							bot.send_text_message(sender_id, response("responsetogibberish"))
 						elif messaging_text.lower() == "help":
+							bot.send_text_message(sender_id, 'I can talk to you, and also search for gifs. Try typing "gif cats" ;) ')
+						elif messaging_text.lower() == "options":
 							bot.send_text_message(sender_id, 'I can talk to you, and also search for gifs. Try typing "gif cats" ;) ')
 						else:
 							bot.send_text_message(sender_id, response(messaging_text))
