@@ -1,5 +1,6 @@
 from apiai import ApiAI
 import json
+from random import randint
 import requests
 
 CLIENT_ACCESS_TOKEN = "YOUR_TOKEN"
@@ -14,11 +15,12 @@ def response(message_text):
 	obj = json.loads(response)
 	return (obj["result"]["fulfillment"]["speech"])
 
-
 def gif_search(message_text):
-	#giphy response
 	search_phrase = message_text.replace(" ", "-")
 	url = "http://api.giphy.com/v1/gifs/search?q=" + search_phrase + "&api_key=dc6zaTOxFJmzC&limit=1"
 	response = requests.get(url)
 	obj = response.json()
-	return (obj["data"][0]["images"]["original"]["url"])
+	if(len(obj["data"])>=1):
+		return (obj["data"][randint(0,len(obj["data"])-1)]["images"]["original"]["url"])
+	else:
+		return False
