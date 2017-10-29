@@ -6,7 +6,7 @@ import requests
 CLIENT_ACCESS_TOKEN = "YOUR_TOKEN"
 
 ai = ApiAI(CLIENT_ACCESS_TOKEN)
-
+print "hello"
 def response(message_text):
 	#api.ai response
 	request = ai.text_request()
