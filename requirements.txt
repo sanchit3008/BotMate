@@ -9,7 +9,7 @@ html5lib==0.999999999
 itsdangerous==0.24
 Jinja2==2.9.6
 MarkupSafe==1.0
-numpy==1.12.1
+numpy==1.22.0
 packaging==16.8
 pymessenger==0.0.7.0
 pyparsing==2.2.0
